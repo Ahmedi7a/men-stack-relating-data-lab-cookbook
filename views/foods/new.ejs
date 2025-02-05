@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+    <div class="container">
+        <h1> Add a New CookBook</h1>
+        <form action="" method="POST">
+            <label for="foodname">Food Name:</label>
+            <input type="text" name="foodname" id="foodname">
+            
+            <label for="ingredient">Ingredient:</label>
+            <input type="text" name="ingredient" id="ingredient">
+
+            <label for="recipe">Recipe:</label>
+            <input type="recipe" name="recipe" id="recipe">
+
+            <label for="instruction">Instruction:</label>
+            <textarea name="instruction" id="instruction"></textarea>
+
+            <!-- value is the same in the model -->
+             <button type="submit" class="btn btn-primary">Add CookBook</button>
+          </form>
+    </div>
+<%- include('../partials/footer') %>

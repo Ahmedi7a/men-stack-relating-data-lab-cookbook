@@ -42,6 +42,7 @@ app.use(passUserToView);
 //====================================================
 //import controller
 const authCotroller = require('./controllers/authentication.js')
+const foodController= require('./controllers/foods.js');
 
 //==================================================
 
@@ -63,8 +64,18 @@ app.post('/auth/sign-in', authCotroller.signIn)
 //sign out page and kill session
 app.get('/auth/sign-out', authCotroller.signOut);
 
-//vip
-app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
+// //vip
+// app.get('/vip-lounge', isSignedIn, authCotroller.welcome)
+app.use(isSignedIn);
+//=================================//===========
+//foods route
+
+//all apps page
+app.get('/users/foods', foodController.index);
+
+//add new page
+app.get('/users/foods/new',foodController.addFoodBook)
+
 
 
 //=============================================
