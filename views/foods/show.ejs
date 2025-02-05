@@ -18,9 +18,9 @@
                 <h6 class="card-subtitle mb-2 text-muted">
                     instruction: <%= currentItem.instruction %>
                 </h6> <br>
-                <a href="/users/<%= user._id %>/foods" class="btn btn-primary">Go Back</a>
+                <a href="/users/<%= user._id %>/foods" class="btn btn-primary">Go Back</a> <br>
                 <form action="/users/<%= user._id %>/foods/<%= currentItem._id %>?_method=DELETE" method="POST"><br>
-                    <button type="submit" class="btn btn-danger">Delete Application</button>
+                    <button type="submit" class="btn btn-danger">Delete FoodBook</button>
                 </form><br>
                 <a href="/users/<%= user._id %>/foods/<%= currentItem._id %>/edit">
                     <button type="submit" class="btn btn-primary">Edit</button>
