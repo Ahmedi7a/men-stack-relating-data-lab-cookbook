@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  foods:[foodSchema],
+  pantry:[foodSchema],
 }, {timestap: true});
 
 const User = mongoose.model("User", userSchema);

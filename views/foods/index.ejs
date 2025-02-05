@@ -3,6 +3,19 @@
   <div class="container">
 
     <h1>All Your CookBooks</h1>
+    <div class="card-container">
+      <% pantry.forEach(pan => { %>  
+                  <div class="card" style="width: 18rem">
+                      <div class="card-body">
+                          <h5 class="card-title"><%= pan.foodname %></h5>
+                          <h6 class="card-subtitle mb-2 text-muted">
+                            Ingredient: <%= pan.ingredient %>
+                          </h6>
+                          <a href="" class="card-link">Show more</a>
+                      </div>
+                  </div>
+      <% }) %>
+    </div>
   
   </div>
   <%- include('../partials/footer') %>

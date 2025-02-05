@@ -71,10 +71,13 @@ app.use(isSignedIn);
 //foods route
 
 //all apps page
-app.get('/users/foods', foodController.index);
+app.get('/users/:userId/foods', foodController.index);
 
 //add new page
-app.get('/users/foods/new',foodController.addFoodBook)
+app.get('/users/:userId/foods/new',foodController.addFoodBook);
+
+//post
+app.post('/users/:userId/foods',foodController.createFoodBook)
 
 
 
