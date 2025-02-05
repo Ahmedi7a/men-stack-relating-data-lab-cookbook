@@ -1,0 +1,31 @@
+<%- include('../partials/head') %> <br>
+    <div class="container">
+        <h1>
+            <%= currentItem.foodname %> Details
+        </h1><br>
+
+        <div class="card" style="width: 18rem">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= currentItem.foodname %>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    Ingredient: <%= currentItem.ingredient %>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    recipe: <%= currentItem.recipe %>
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    instruction: <%= currentItem.instruction %>
+                </h6> <br>
+                <a href="/users/<%= user._id %>/foods" class="btn btn-primary">Go Back</a>
+                <form action="/users/<%= user._id %>/foods/<%= currentItem._id %>?_method=DELETE" method="POST"><br>
+                    <button type="submit" class="btn btn-danger">Delete Application</button>
+                </form><br>
+                <a href="/users/<%= user._id %>/foods/<%= currentItem._id %>/edit">
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer') %>

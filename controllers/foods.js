@@ -19,7 +19,7 @@ function addFoodBook(req, res) {
 }
 
 //post new
-async function createFoodBook(req,res){
+async function createFoodBook(req, res) {
     try {
         const currentUser = await User.findById(req.params.userId);
         currentUser.pantry.push(req.body);
@@ -31,6 +31,59 @@ async function createFoodBook(req,res){
         console.log(err)
         res.redirect('/');
     }
+
+}
+
+//show page
+async function showFood(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        const currentItem = currentUser.pantry.id(req.params.itemId);
+        res.render('foods/show.ejs',{title: currentItem.foodname, currentItem})
+
+    } catch (err) {
+
+        console.log(err)
+        res.redirect('/');
+    }
+
+
+}
+
+//delete
+async function deleteFood(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        currentUser.pantry.id(req.params.itemId).deleteOne();
+        await currentUser.save();
+        res.redirect(`/users/${currentUser._id}/foods`)
+        
+    } catch (err) {
+
+        console.log(err)
+        res.redirect('/');
+    }
+
+
+}
+
+//edit page
+async function editFood(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        const currentItem = currentUser.pantry.id(req.params.itemId);
+        res.render('foods/edit.ejs', {
+            title: currentItem.foodname,
+            currentItem,
+        })
+
+        
+    } catch (err) {
+
+        console.log(err)
+        res.redirect('/');
+    }
+
 
 }
 
@@ -47,5 +100,8 @@ module.exports = {
     index,
     addFoodBook,
     createFoodBook,
+    showFood,
+    deleteFood,
+    editFood,
 
 }

@@ -79,6 +79,15 @@ app.get('/users/:userId/foods/new',foodController.addFoodBook);
 //post
 app.post('/users/:userId/foods',foodController.createFoodBook)
 
+//show page
+app.get('/users/:userId/foods/:itemId', foodController.showFood)
+
+//delete post
+app.delete('/users/:userId/foods/:itemId', foodController.deleteFood);
+
+//edit page
+app.get('/users/:userId/foods/:itemId/edit', foodController.editFood)
+
 
 
 //=============================================
