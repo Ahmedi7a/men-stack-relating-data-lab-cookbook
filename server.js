@@ -88,6 +88,9 @@ app.delete('/users/:userId/foods/:itemId', foodController.deleteFood);
 //edit page
 app.get('/users/:userId/foods/:itemId/edit', foodController.editFood)
 
+//post update
+app.put('/users/:userId/foods/:itemId', foodController.updateFood);
+
 
 
 //=============================================

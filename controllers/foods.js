@@ -87,6 +87,23 @@ async function editFood(req, res) {
 
 }
 
+//post update
+async function updateFood(req, res) {
+    try {
+        const currentUser = await User.findById(req.params.userId);
+        const currentItem = currentUser.pantry.id(req.params.itemId);
+        currentItem.set(req.body);
+        await currentUser.save();
+        res.redirect(`/users/${currentUser._id}/foods/${req.params.itemId}`) 
+        
+    } catch (err) {
+
+        console.log(err)
+        res.redirect('/');
+    }
+
+
+}
 
 
 
@@ -103,5 +120,6 @@ module.exports = {
     showFood,
     deleteFood,
     editFood,
+    updateFood,
 
 }
