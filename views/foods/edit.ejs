@@ -12,7 +12,7 @@
             <input type="recipe" name="recipe" id="recipe" value="<%= currentItem.recipe%>">
 
             <label for="instruction">Instruction:</label>
-            <textarea name="instruction" id="instruction" value="<%= currentItem.instruction%>"></textarea>
+            <textarea name="instruction" id="instruction"><%= currentItem.instruction%></textarea>
 
             <!-- value is the same in the model -->
              <button type="submit" class="btn btn-primary">Update CookBook</button>
